@@ -27,7 +27,8 @@ CREATE TABLE Addresses (
     CityID INT,
     StreetName VARCHAR(50),
     PRIMARY KEY (ID),
-    FOREIGN KEY (CityID) REFERENCES Cities (ID) ON DELETE NO ACTION
+    FOREIGN KEY (CityID) REFERENCES Cities (ID) ON DELETE NO ACTION,
+    FOREIGN KEY (CountryID) REFERENCES Countries (ID) ON DELETE NO ACTION,
 );
 
 CREATE TABLE Warehouses (
@@ -43,7 +44,6 @@ CREATE TABLE ProductInventory (
     ProductID INT,
     WarehouseAmount INT,
     WarehouseID INT,
-	FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE NO ACTION,
     FOREIGN KEY (WarehouseID) REFERENCES Warehouses (ID) ON DELETE NO ACTION,
     FOREIGN KEY (ProductID) REFERENCES Products (ID) ON DELETE NO ACTION, 
     PRIMARY KEY (ID)
